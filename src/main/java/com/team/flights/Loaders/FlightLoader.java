@@ -138,21 +138,21 @@ public class FlightLoader implements CommandLineRunner {
             "ALTER TABLE `flights`.`flight_data` CHANGE COLUMN `trip_id` `trip_id` BIGINT(20) NOT NULL,CHANGE COLUMN `user_id` `user_id` BIGINT(20) NOT NULL;\r\n" +
             "ALTER TABLE `flights`.`flight_data` CHANGE COLUMN `trip_id` `trip_id` BIGINT(20) NOT NULL DEFAULT 0,CHANGE COLUMN `user_id` `user_id` BIGINT(20) NOT NULL DEFAULT 0 ;\r\n");
 
-            for (int i = 0; i < 31; i++) {
+            for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 3; j++) {
                     for (int h = 0; h < locations.length; h++) {
                         for (int k = 0; k < locations.length; k++) {
                             if (k != h) {
-//                                Flight flight = new Flight(locations[k], locations[h], date.toString(), depart[r.nextInt(depart.length)],
-//                                        arrive[r.nextInt(arrive.length)], r.nextInt(7) + 1, r.nextInt(41) + 10,
-//                                        r.nextInt(421) + 80);
-//                                flightRepository.save(flight);
-//                                System.out.println("Saved object " + ((i * 2600) + (j * 26) + (k + 1)));
-                                writer.write("INSERT INTO flight_data (to_location,from_location,date,price,available_seats,departing_time,arrival_time,flight_class) " +
-                                        "VALUES (\"" + locations[k] + "\",\"" + locations[h] +
-                                        "\",\"" + date.toString() + "\"," + (r.nextInt(421) + 80) + "," +
-                                        (r.nextInt(41) + 10) + ",\"" + depart[r.nextInt(depart.length)] +
-                                        "\",\"" + arrive[r.nextInt(arrive.length)] + "\"," + (r.nextInt(7) + 1) + ");\r\n");
+                                Flight flight = new Flight(locations[k], locations[h], date.toString(), depart[r.nextInt(depart.length)],
+                                        arrive[r.nextInt(arrive.length)], r.nextInt(7) + 1, r.nextInt(451) + 50,
+                                        r.nextInt(421) + 80);
+                                flightRepository.save(flight);
+                                System.out.println("Saved object " + ((i * 2600) + (j * 26) + (k + 1)));
+//                                writer.write("INSERT INTO flight_data (to_location,from_location,date,price,available_seats,departing_time,arrival_time,flight_class) " +
+//                                        "VALUES (\"" + locations[k] + "\",\"" + locations[h] +
+//                                        "\",\"" + date.toString() + "\"," + (r.nextInt(421) + 80) + "," +
+//                                        (r.nextInt(41) + 10) + ",\"" + depart[r.nextInt(depart.length)] +
+//                                        "\",\"" + arrive[r.nextInt(arrive.length)] + "\"," + (r.nextInt(7) + 1) + ");\r\n");
                             }
                         }
                     }
