@@ -137,7 +137,7 @@ public class FlightLoader implements CommandLineRunner {
             "ALTER TABLE `flights`.`flight_data` CHANGE COLUMN `id` `id` BIGINT(20) NOT NULL AUTO_INCREMENT;\r\n" +
             "ALTER TABLE `flights`.`flight_data` CHANGE COLUMN `trip_id` `trip_id` BIGINT(20) NOT NULL,CHANGE COLUMN `user_id` `user_id` BIGINT(20) NOT NULL;\r\n" +
             "ALTER TABLE `flights`.`flight_data` CHANGE COLUMN `trip_id` `trip_id` BIGINT(20) NOT NULL DEFAULT 0,CHANGE COLUMN `user_id` `user_id` BIGINT(20) NOT NULL DEFAULT 0 ;\r\n");
-                    
+
             //changed to i<4 because postgresql can only have a max of 10000 rows, originally i <31 for 80000 rows
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 3; j++) {
@@ -150,7 +150,7 @@ public class FlightLoader implements CommandLineRunner {
                                         r.nextInt(421) + 80);
                                 flightRepository.save(flight);
                                 System.out.println("Saved object " + ((i * 2600) + (j * 26) + (k + 1)));
-                                  //This section puts it into a text file
+                                //This section puts it into a text file
 //                                writer.write("INSERT INTO flight_data (to_location,from_location,date,price,available_seats,departing_time,arrival_time,flight_class) " +
 //                                        "VALUES (\"" + locations[k] + "\",\"" + locations[h] +
 //                                        "\",\"" + date.toString() + "\"," + (r.nextInt(421) + 80) + "," +
